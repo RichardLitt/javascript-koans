@@ -39,6 +39,12 @@ describe("About Applying What We Have Learnt", function() {
 
       var productsICanEat = [];
 
+      productsICanEat.push(_.filter(products, function(pizza){
+        return !pizza.containsNuts && !_.some(pizza.ingredients, function(ing){
+          return ing !== 'mushrooms';
+        });
+      }));
+
       /* solve using filter() & all() / any() */
 
       expect(productsICanEat.length).toBe(1);
